@@ -1,0 +1,18 @@
+<h2>Testing the communication between Angular and ASP.NET Core</h2>
+
+<div>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Temperature c</th>
+            <th>Temperature F</th>
+            <th>Summary</th>
+        </tr>
+        <tr *ngFor="let weatherForecast of weatherForecasts">
+            <td>{{weatherForecast.date}}</td>
+            <td>{{weatherForecast.temperatureC}}</td>
+            <td>{{weatherForecast.temperatureF}}</td>
+            <td>{{weatherForecast.summary}}</td>
+        </tr>
+    </table>
+</div>

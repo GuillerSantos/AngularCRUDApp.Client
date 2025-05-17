@@ -1,0 +1,13 @@
+# Angular
+dist/
+node_modules/
+.env
+.vscode/
+.DS_Store
+
+# VSCode / Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
