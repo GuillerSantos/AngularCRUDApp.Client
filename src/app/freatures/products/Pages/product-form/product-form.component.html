@@ -1,0 +1,43 @@
+<div class="container">
+    <h2>{{ isEdit ? 'Edit Product' : 'Create Product'}}</h2>
+  
+    <form (ngSubmit)="save()">
+      <div class="form-group mb-2">
+        <label>Name</label>
+        <input [(ngModel)]="product.productName" name="productName" class="form-control" />
+      </div>
+  
+      <div class="form-group mb-2">
+        <label>Description</label>
+        <input [(ngModel)]="product.productDescription" name="productDescription" class="form-control" />
+      </div>
+  
+      <div class="form-group mb-2">
+        <label>Category</label>
+        <input [(ngModel)]="product.productCategory" name="productCategory" class="form-control" />
+      </div>
+  
+      <div class="form-group mb-2">
+        <label>Price</label>
+        <input [(ngModel)]="product.productPrice" name="productPrice" type="number" class="form-control" />
+      </div>
+  
+      <div class="form-group mb-2">
+        <label>Stock</label>
+        <input [(ngModel)]="product.productStock" name="productStock" type="number" class="form-control" />
+      </div>
+  
+      <div class="form-group mb-2">
+        <label>Image</label>
+        <input [(ngModel)]="product.productImage" name="productImage" class="form-control" />
+      </div>
+  
+      <div class="form-group mb-2">
+        <label>Brand</label>
+        <input [(ngModel)]="product.productBrand" name="productBrand" class="form-control" />
+      </div>
+  
+      <button type="submit" class="btn btn-primary">{{ isEdit ? 'Update' : 'Create' }}</button>
+    </form>
+  </div>
+  

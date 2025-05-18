@@ -1,0 +1,18 @@
+<div class="card h-100 shadow-sm">
+    <img *ngIf="product.productImage" [src]="product.productImage" class="card-img-top" alt="{{ product.productName }}" />
+  
+    <div class="card-body">
+      <h5 class="card-title">{{ product.productName }}</h5>
+      <p class="card-text">{{ product.productDescription }}</p>
+      <p><strong>Price:</strong> {{ product.productPrice | currency }}</p>
+      <p><strong>Stock:</strong> {{ product.productStock }}</p>
+      <p><strong>Category:</strong> {{ product.productCategory }}</p>
+      <p><strong>Brand:</strong> {{ product.productBrand }}</p>
+    </div>
+  
+    <div class="card-footer d-flex justify-content-between">
+      <button class="btn btn-warning btn-sm" (click)="onEdit()">Edit</button>
+      <button class="btn btn-danger btn-sm" (click)="onDelete()">Delete</button>
+    </div>
+  </div>
+  

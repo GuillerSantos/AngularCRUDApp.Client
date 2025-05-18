@@ -1,12 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { WeatherforecastService } from './weatherforecast.service';
+import { ProductService } from './freatures/products/services/product.service';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NavbarComponent, RouterModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -16,14 +17,14 @@ export class AppComponent {
   // Access though this property from html
 
   // Assignning that value into this property
-  weatherForecasts: any[] = [];
+  products: any[] = [];
 
-  weatherForecastService = inject(WeatherforecastService);
+  ProductService = inject(ProductService);
 
   // Getting Response from my Web API
   constructor(){
-    this.weatherForecastService.get().subscribe(weatherForecasts => {
-      this.weatherForecasts = weatherForecasts;
+    this.ProductService.get().subscribe(products => {
+      this.products = products;
     });
   }
 }

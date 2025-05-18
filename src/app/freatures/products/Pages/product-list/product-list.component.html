@@ -1,0 +1,37 @@
+<div class="container">
+    <h2>Products</h2>
+
+    <button routerLink="/products/create" class="btn btn-primary mb-3">
+        Add Product
+    </button>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Brand</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{product.productName}}</td>
+                <td>{{product.productDescription}}</td>
+                <td>{{product.productCategory}}</td>
+                <td>{{product.productPrice}}</td>
+                <td>{{product.productStock}}</td>
+                <td>{{product.productBrand}}</td>
+                <td>{{product.createdAt}}</td>
+                <td>
+                    <button class="btn btn-warning btn-sm" [routerLink]="['/products/edit', product.id]">Edit</button>
+                    <button class="btn btn-danger btn-sm" (click)="delete(product.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
