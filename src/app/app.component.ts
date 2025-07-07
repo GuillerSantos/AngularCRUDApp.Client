@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, NavbarComponent, RouterModule],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['../styles.css']
 })
 export class AppComponent {
   title = 'AngularCRUDApp.Client';

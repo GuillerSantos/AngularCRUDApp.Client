@@ -1,37 +1,55 @@
-<div class="container">
-    <h2>Products</h2>
-
-    <button routerLink="/products/create" class="btn btn-primary mb-3">
-        Add Product
-    </button>
-
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Category</th>
-                <th>Price</th>
-                <th>Stock</th>
-                <th>Brand</th>
-                <th>Created At</th>
-                <th>Actions</th>
-            </tr>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div class="flex flex-col sm:flex-row justify-between items-center mb-6">
+      <h2 class="text-2xl font-semibold text-gray-800 dark:text-white">Products</h2>
+      <button
+        routerLink="/products/create"
+        type="button"
+        class="mt-4 sm:mt-0 inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:bg-blue-500 dark:hover:bg-blue-600"
+      >
+        + Add Product
+      </button>
+    </div>
+  
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm text-left text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 rounded-lg">
+        <thead class="bg-gray-100 dark:bg-gray-800 text-xs uppercase font-semibold text-gray-600 dark:text-gray-300">
+          <tr>
+            <th class="px-4 py-3">Name</th>
+            <th class="px-4 py-3">Description</th>
+            <th class="px-4 py-3">Category</th>
+            <th class="px-4 py-3">Price</th>
+            <th class="px-4 py-3">Stock</th>
+            <th class="px-4 py-3">Brand</th>
+            <th class="px-4 py-3">Created At</th>
+            <th class="px-4 py-3">Actions</th>
+          </tr>
         </thead>
-        <tbody>
-            <tr *ngFor="let product of products">
-                <td>{{product.productName}}</td>
-                <td>{{product.productDescription}}</td>
-                <td>{{product.productCategory}}</td>
-                <td>{{product.productPrice}}</td>
-                <td>{{product.productStock}}</td>
-                <td>{{product.productBrand}}</td>
-                <td>{{product.createdAt}}</td>
-                <td>
-                    <button class="btn btn-warning btn-sm" [routerLink]="['/products/edit', product.id]">Edit</button>
-                    <button class="btn btn-danger btn-sm" (click)="delete(product.id)">Delete</button>
-                </td>
-            </tr>
+        <tbody class="divide-y divide-gray-500 dark:divide-gray-700">
+          <tr *ngFor="let product of products" class="hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+            <td class="px-4 py-2">{{ product.productName }}</td>
+            <td class="px-4 py-2">{{ product.productDescription }}</td>
+            <td class="px-4 py-2">{{ product.productCategory }}</td>
+            <td class="px-4 py-2">{{ product.productPrice | currency }}</td>
+            <td class="px-4 py-2">{{ product.productStock }}</td>
+            <td class="px-4 py-2">{{ product.productBrand }}</td>
+            <td class="px-4 py-2">{{ product.createdAt | date:'medium' }}</td>
+            <td class="px-4 py-2 space-x-2">
+              <button
+                [routerLink]="['/products/edit', product.id]"
+                class="inline-flex items-center px-3 py-1.5 bg-yellow-400 hover:bg-yellow-500 text-white text-xs font-medium rounded transition"
+              >
+                Edit
+              </button>
+              <button
+                (click)="delete(product.id)"
+                class="inline-flex items-center px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-medium rounded transition"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
         </tbody>
-    </table>
-</div>
+      </table>
+    </div>
+  </div>
+  
